@@ -100,27 +100,14 @@
 		var main = $('#main');
 		function makeResults() {
 
-			localStorage.setItem("name", $("#name").val());		
-			localStorage.setItem("verb-1", $("#verb-1").val());
-			localStorage.setItem("mission", $("#mission").val());
-			localStorage.setItem(  "radio", $("input:radio[name='sentiment']:checked").val()  );
-			localStorage.setItem("noun-1", $("#noun-1").val());
-			localStorage.setItem("checkbox", $("input:checkbox[name='adjective-2']:checked").val());
-			localStorage.setItem("noun-2", $("#noun-2").val());
-
-
-
+		
 			$( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
-
-					var $results = $("section").append("<h1> " + "");
-				
-
 			// JS Native:
 			// var results = document.createElement('section');
 			// results.innerHTML = '<h1>' + 'A true story:' + '</h1>';
 			// results.className = 'container results';
 			// main.appendChild(results);
-		};
+		}
 			
 			$("form").on("submit", function(event){
 		    
@@ -130,8 +117,20 @@
 
 	    	// Run the 'makeResults' function seen above
 
+	    	makeResults();
+
+			var name = $("#name").val();		
+			var verb =  $("#verb-1").val();
+			var mission =  $("#mission").val();
+			var radio = localStorage.setItem("radio", $("input:radio[name='sentiment']:checked").val());
+			var noun = $("#noun-1").val();
+			var checkbox = $(".check").val();
+			var noun2 = $("#noun-2").val();
+
+				$(".container.results").append("Once upon a time there was a Developer named " + name + " . " + name + " came to General Asssembly to " + verb + " the great mountain of programming knowledge. " + mission + ", " + name + " shouted. Though " + radio +  ", " + name +  " was able to overcome all obstacles with the power of their " + noun + ". In the end, their success can be contributed entirely to their " + checkbox + ", "  + noun2 + ".");
+
+
 	    	/*
-			
 				For each value entered into a form input, add the input to the corresponding sentence, 
 
 				then append the text into the results section:
@@ -147,8 +146,7 @@
 				"In the end, their success can be contributed entirely to their " + ADJECTIVE2[list each one checked, comma-separated] + NOUN2."
 
 	    	*/ 
-
-	    	makeResults();
+	    	
 
 		});
 	</script>
