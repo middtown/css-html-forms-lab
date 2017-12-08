@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>CSS HTML Forms Lab</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -99,7 +100,20 @@
 		var main = $('#main');
 		function makeResults() {
 
+			localStorage.setItem("name", $("#name").val());		
+			localStorage.setItem("verb-1", $("#verb-1").val());
+			localStorage.setItem("mission", $("#mission").val());
+			localStorage.setItem(  "radio", $("input:radio[name='sentiment']:checked").val()  );
+			localStorage.setItem("noun-1", $("#noun-1").val());
+			localStorage.setItem("checkbox", $("input:checkbox[name='adjective-2']:checked").val());
+			localStorage.setItem("noun-2", $("#noun-2").val());
+
+
+
 			$( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
+
+					var $results = $("section").append("<h1> " + "");
+				
 
 			// JS Native:
 			// var results = document.createElement('section');
@@ -107,16 +121,20 @@
 			// results.className = 'container results';
 			// main.appendChild(results);
 		};
-
-		$("form").on("submit", function(event){
-
+			
+			$("form").on("submit", function(event){
+		    
 		    // Stop the form from submitting
+			event.preventDefault();
+
 
 	    	// Run the 'makeResults' function seen above
 
 	    	/*
 			
-				For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:
+				For each value entered into a form input, add the input to the corresponding sentence, 
+
+				then append the text into the results section:
 
 				"Once upon a time there was a Developer named NAME."
 
@@ -129,6 +147,9 @@
 				"In the end, their success can be contributed entirely to their " + ADJECTIVE2[list each one checked, comma-separated] + NOUN2."
 
 	    	*/ 
+
+	    	makeResults();
+
 		});
 	</script>
 
