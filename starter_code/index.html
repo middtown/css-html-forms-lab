@@ -122,12 +122,13 @@
 			var name = $("#name").val();		
 			var verb =  $("#verb-1").val();
 			var mission =  $("#mission").val();
-			var radio = localStorage.setItem("radio", $("input:radio[name='sentiment']:checked").val());
+			var radio =  $("input:radio[name='sentiment']:checked").val();
 			var noun = $("#noun-1").val();
-			var checkbox = $(".check").val();
+			var checkbox =  $("input:checkbox[name='adjective-2']:checked").val();
+			console.log(checkbox);
 			var noun2 = $("#noun-2").val();
 
-				$(".container.results").append("Once upon a time there was a Developer named " + name + " . " + name + " came to General Asssembly to " + verb + " the great mountain of programming knowledge. " + mission + ", " + name + " shouted. Though " + radio +  ", " + name +  " was able to overcome all obstacles with the power of their " + noun + ". In the end, their success can be contributed entirely to their " + checkbox + ", "  + noun2 + ".");
+				$(".container.results").append("Once upon a time there was a Developer named " + name + " . " + name + " came to General Asssembly to " + verb + " the great mountain of programming knowledge. " + mission + ", " + name + " shouted. Though " + radio +  ", " + name +  " was able to overcome all obstacles with the power of their " + noun + ". In the end, their success can be contributed entirely to their " + checkbox + " " + noun2 + " . ");
 
 
 	    	/*
